@@ -1,0 +1,53 @@
+-->
+</script>
+<script src="Public/Js/display.js"></script>
+</head>
+<body class="drawer drawer--right">
+    <header role="banner">
+        <!-- humberger button -->
+        <button type="button" class="drawer-toggle drawer-hamburger">
+            <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+        </button>
+        <!-- navigation contents -->
+        <nav class="drawer-nav" role="navigation">
+            <ul class="drawer-menu">
+                <li><h2>Bleeding</h2></li>
+                <br>
+                <li>
+                    <h3>feeding</h3>
+o                    <form action="http://localhost:19767/dummy" method="get">
+                        index<br>
+                        <input type="text" name="index" size="2">
+                        <br>
+                        word
+                        <input type="text" name="feed">
+                        <div class="menu_button">
+                            <input type="submit" value="feed">
+                        </div>
+                    </form>
+                </li>
+                <br>
+                <li>
+                    <h3>new</h3>
+                    <form action="http://localhost:19767/dummy" method="get">
+                        <input type="hidden" name="index" value="-1">
+                        word
+                        <input type="text" name="feed">
+                        <div class="menu_button">
+                            <input type="submit" value="new">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <!-- Page content -->
+        <h1>Wunder Kammer</h1>
+        <div id="fullpage">
+            <div class="section">
+                <div class="slide" data-anchor="main-slide">
+                    main page
+                    <div id="canvas-frame_0"></div>
+                </div>

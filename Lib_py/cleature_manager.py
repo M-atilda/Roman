@@ -161,6 +161,9 @@ class CleatureManager:
         result_str = result_str + "var body_structures_l = [{}];\n".format(bodys_list_str[:-1])
         return result_str
 
+    def get_cleatures_amount(self):
+        return len(CleatureManager.co_l)
+    
     def feed_cleature(self, index, new_str):
         if index == -1:
             CleatureManager.co_l.append(cleature_factory(new_str))

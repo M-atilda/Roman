@@ -1,59 +1,13 @@
--->
-</script>
-</head>
-<body class="drawer drawer--right">
-  <header role="banner">
-    <!-- humberger button -->
-    <button type="button" class="drawer-toggle drawer-hamburger">
-      <span class="sr-only">toggle navigation</span>
-      <span class="drawer-hamburger-icon"></span>
-    </button>
-    <!-- navigation contents -->
-    <nav class="drawer-nav" role="navigation">
-      <ul class="drawer-menu">
-        <li><h2>Bleeding</h2></li>
-        <li>
-            <h3>feeding</h3>
-            <form action="localhost:19767/" method="get">
-                index:<input type="text" name="index">
-                word:<input type="text" name="feed">
-                <p>
-                    <input type="submit" value="feed">
-                </p>
-            </form>
-        </li>
-        <li>
-            <h3>new</h3>
-            <form action="localhost:19767/" method="get">
-                <input type="hidden" name="index" value="-1">
-                word:<input type="text" name="feed">
-                <p>
-                    <input type="submit" value="new">
-                </p>
-            </form>
-        </li>
-        <!--<li><a class="drawer-menu-item" href="#">Nav2</a></li>-->
-      </ul>
-    </nav>
-  </header>
-  <main role="main">
-    <!-- Page content -->
-    <h1>Wunder Kammer</h1>
-    <div id="fullpage">
-    <div class="section">
-        <div class="slide" data-anchor="slide1"> Slide 1 </div>
-        <div class="slide" data-anchor="slide2"> Slide 2 </div>
-        <div class="slide" data-anchor="slide3"> Slide 3 </div>
-        <div class="slide" data-anchor="slide4"> Slide 4 </div>
-    </div>
-    </div>
-  </main>
-  
-  <!-- start to use plugins -->
-  <script>
-    $(document).ready(function() {
-        $('.drawer').drawer();
-        $('#fullpage').fullpage();
-    });
-  </script>
+            </div>
+        </div>
+    </main>
+    
+    <!-- start to use plugins -->
+    <script>
+     $(document).ready(function() {
+         $('.drawer').drawer();
+         $('#fullpage').fullpage();
+         //threeStart();
+     });
+    </script>
 </body></html>

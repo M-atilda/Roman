@@ -106,3 +106,7 @@ Ref/*
 
 # app engine in erlang
 Lib_erl/*.beam
+
+# log and text resources (depending server environment)
+*.log
+*.txt

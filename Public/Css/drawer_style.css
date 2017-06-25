@@ -1,0 +1,26 @@
+#drawerBtn a {
+    font-size: 30px;
+    font-weight: bold;
+    color: khaki;
+}
+
+.drawer-nav {
+    width: 12%;
+    color: saddlebrown;
+    background-color: powderblue;
+    text-align:center;
+}
+
+.drawer-nav ul li h2 {
+    text-align:center;
+    color: darkgoldenrod;
+}
+
+.drawer-nav ul li h3 {
+    color: darkslategray;
+    text-align: center;
+}
+
+.drawer-nav ul li form menu_button {
+    text-align: right;
+}

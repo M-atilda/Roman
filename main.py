@@ -14,14 +14,28 @@ import Lib_py.params as params
 
 g_first_html_src = ""
 g_latter_html_src = ""
+g_middle_html_src = ""
 with open('Public/Html/index_first.html') as f:
     for line in f:
         g_first_html_src = g_first_html_src + line
+with open('Public/Html/index_middle.html') as f:
+    for line in f:
+        g_middle_html_src = g_middle_html_src + line        
 with open('Public/Html/index_latter.html') as f:
     for line in f:
         g_latter_html_src = g_latter_html_src + line
 g_cleature_manager = CleatureManager()
 
+
+#TODO:
+def generate_tab_contents(num):
+    return "<div id=\"canvas-frame_{}\"></div>".format(num)
+
+def make_tabs_html_src(length):
+    result = ""
+    for i in range(length):
+        result = result + "<div class=\"slide\" data-anchor=\"slide{}\">{}</div>\n".format(i+1, generate_tab_contents(i+1))
+    return result
 
 class MyRequestHandler(SimpleHTTPRequestHandler):
     global g_first_html_src
@@ -59,7 +73,11 @@ class MyRequestHandler(SimpleHTTPRequestHandler):
                 else:
                     content_type = 'text/javascript'
             else:
-                body = bytes(g_first_html_src + g_cleature_manager.get_cleatures_info_str() + g_latter_html_src, 'utf-8')
+                body = bytes(g_first_html_src +\
+                             g_cleature_manager.get_cleatures_info_str() +\
+                             g_middle_html_src +\
+                             make_tabs_html_src(g_cleature_manager.get_cleatures_amount()) +\
+                             g_latter_html_src, 'utf-8')
                 content_type = 'text/html'
 
             # respond phase
