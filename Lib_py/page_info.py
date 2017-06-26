@@ -62,11 +62,12 @@ def get_page_colors(html_src, host_url):
     print(colors)
     return colors
     
-def decide_vector(header_info):
-    result = [1, 1, 1]
+def decide_vector(header_info, num):
+    results = []
     if len(header_info) < 3:
         raise Exception("lack of header information")
-    else:
+    for i in range(num):
+        result = [1, 1, 1]
         if (len(header_info) % 2) == 0:
             result[0] = -1
         val_l = list(header_info.values())
@@ -77,5 +78,6 @@ def decide_vector(header_info):
         key_l = list(header_info.keys())
         if (random.randrange(len(key_l[random.randrange(len(header_info))])) % 2) == 0:
             result[2] = -1
-            print("$$$$$$$$$$ {} $$$$$$$$$$".format(result))
-    return result
+        results.append(result)
+    print("$$$$$$$$$$ {} $$$$$$$$$$".format(results))
+    return results

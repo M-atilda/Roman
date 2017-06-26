@@ -7,7 +7,42 @@
      $(document).ready(function() {
          $('.drawer').drawer();
          $('#fullpage').fullpage();
-         //threeStart();
+         $("body").quietflow({
+             theme: "floatingBoxes",
+             specificColors : [
+                 "rgba(255, 250, 205, .2)",
+                 "rgba(178, 34, 34, .2)",
+                 "rgba(00, 255, 255, .2)",
+                 "rgba(255, 182, 193, .2)",
+                 "rgba(255, 165, 00, .2)"
+             ],
+             boxCount : 200,
+             backgroundCol : "#008b8b"
+         });
      });
+     $(function() {
+         var i;
+         for (i = 0; i < cleature_num; i++) {
+             var dom_name = '#canvas-frame_' + (i+1);
+             var message = "life:" + rest_lifes_l[i] + "\nwords:"+ next_search_words_l[i];
+             $(dom_name).niceTooltip({
+                 HTML: message,
+                 position: {
+                     horizontal: "right",
+                     vertical: "bottom"
+                 }
+             });
+         }
+     });
+
+     var current_url = window.location.href;
+     if (current_url.match(/index=/)) {
+         function load_top() {
+             location.href = "http://localhost:19767/dummy";
+         }
+         setTimeout("load_top()", 10000);
+     } else {
+         setTimeout("location.reload(true)", 60000);         
+     }
     </script>
 </body></html>

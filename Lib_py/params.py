@@ -7,17 +7,17 @@ def cache_amount():
     return 10
 
 def x_length():
-    return 40
+    return 60
 def y_length():
-    return 40
+    return 60
 def z_length():
-    return 40
+    return 60
 
 def trivial_words():
     return ["amazon", "news", "search", "yahoo", "google", "intl", "wikipedia"]
 
 def loop_time():
-    return 30
+    return 1200
 
 def candidate_amount():
     return 3

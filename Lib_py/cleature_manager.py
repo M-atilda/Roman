@@ -50,9 +50,9 @@ class Cleature_operator:
                 raise Exception("no css found")
             else:
                 feed_colors = colors[:random.randrange(len(colors))]
-            vector = decide_vector(html_src[0]) # only header
-            for color in feed_colors:
-                self._cleature_o.grow(color, vector)
+            vectors = decide_vector(html_src[0], len(feed_colors))
+            for factor in zip(feed_colors, vectors):
+                self._cleature_o.grow(factor[0], factor[1])
             print("[[[[[[[[[[ growth ]]]]]]]]]]")
             next_search_candidate = get_next_search_candidate(html_src[1])
             if next_search_candidate in study.get_encoding_error_words_list():
@@ -66,10 +66,10 @@ target\n\
     url       : {}\n\
 growth\n\
     colors    : {}\n\
-    vector    : {}\n\
+    vectors    : {}\n\
     nexts     : {}\n\
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\
-".format(search_target, target_info[0], target_info[1], feed_colors, vector, next_search_candidate))
+".format(search_target, target_info[0], target_info[1], feed_colors, vectors, next_search_candidate))
             self._cleature_o.life = max(self._cleature_o.life+1, params.life())
 
         except Exception as e:

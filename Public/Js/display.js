@@ -24,7 +24,6 @@ function setCleaturesInfo() {
 
 window.addEventListener("load", function() {
     threeStart();
-    console.log(none_zero_counter);
 });
 
 function threeStart() {
@@ -50,17 +49,16 @@ function initThree(num) {
     var dom_name = 'canvas-frame_' + (num + 1);
     g_canvas_frames_l.push(document.getElementById(dom_name));
     console.log(dom_name);
-    g_renderers_l.push(new THREE.WebGLRenderer());
+    g_renderers_l.push(new THREE.WebGLRenderer({ alpha: true }));
     if (!g_renderers_l[num]) alert("failed to initialize three-js");
     g_renderers_l[num].setSize(g_canvas_frames_l[num].clientWidth, g_canvas_frames_l[num].clientHeight);
     g_canvas_frames_l[num].appendChild(g_renderers_l[num].domElement);
-    g_renderers_l[num].setClearColor(0x008b8b, 1.0);
     g_scenes_l.push(new THREE.Scene());
 }
 
 function initCamera(num) {
     g_cameras_l.push(new THREE.PerspectiveCamera(45, g_canvas_frames_l[num].clientWidth / g_canvas_frames_l[num].clientHeight, 1, 10000));
-    g_cameras_l[num].position.set(60, 60, 60);
+    g_cameras_l[num].position.set(150, 150, 150);
     g_cameras_l[num].up.set(0, 0, 1);
     g_cameras_l[num].lookAt({x:0,y:0,z:0});
 }
