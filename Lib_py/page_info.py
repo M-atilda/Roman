@@ -27,9 +27,10 @@ def get_page_colors(html_src, host_url):
     print("(((((((((( {} ))))))))))".format(css_urls_l))
     def is_color_scheme(color_scheme_candidate):
         #NOTE: ignore #000 and #fff
-        if ';' in color_scheme_candidate:
+        color_scheme_candidate_str = color_scheme_candidate.__str__()
+        if ';' in color_scheme_candidate_str:
             return False
-        for c in color_scheme_candidate[1:]:
+        for c in color_scheme_candidate_str[1:]:
             if ('0' <= c <= '9') or ('a' <= c <= 'f') or ('A' <= c <= 'F'):
                 continue
             else:

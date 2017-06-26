@@ -79,6 +79,8 @@ growth\n\
             print("exception occured in growing process : {}".format(e.__str__()))
     def is_alive(self):
         return self._is_alive_b
+    def get_rest_life(self):
+        return self._cleature_o.life
 
 class Cleature:
     def __init__(self, first_str):
@@ -139,8 +141,8 @@ class CleatureManager:
                 for copy_c in temp_co_l:
                     copy_c.prompt_growth()
                 with self.lock:
-                    CleatureManager.co_l = temp_co_l
-                    wait_time = (params.loop_time() / 2) + random.randrange(params.loop_time())
+                    CleatureManager.co_l = [co for co in temp_co_l if co.is_alive()]
+                wait_time = (params.loop_time() / 2) + random.randrange(params.loop_time())
                 time.sleep(wait_time)
 
     
@@ -149,7 +151,8 @@ class CleatureManager:
         CleatureManager._cut.start()
 
     def get_cleatures_info_str(self):
-        result_str = "var cleature_num = {};\n".format(len(CleatureManager.co_l))
+        result_str = "var cleature_num = {};\nvar box_length = {};\n".format(len(CleatureManager.co_l), params.x_length())
+        rest_lifes_l = [co.get_rest_life() for co in CleatureManager.co_l]
         next_targets_list_str = " "
         bodys_list_str = " "
         for (i, c) in enumerate(CleatureManager.co_l):
@@ -157,6 +160,7 @@ class CleatureManager:
             next_targets_list_str = next_targets_list_str + result[0] + ","
             bodys_list_str = bodys_list_str + result[1] + ","
 
+        result_str = result_str + "var rest_lifes_l = {};\n".format(rest_lifes_l)
         result_str = result_str + "var next_search_words_l = [{}];\n".format(next_targets_list_str[:-1])
         result_str = result_str + "var body_structures_l = [{}];\n".format(bodys_list_str[:-1])
         return result_str
