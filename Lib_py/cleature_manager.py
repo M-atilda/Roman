@@ -4,6 +4,7 @@ import random
 import copy
 import threading
 import time
+import pickle
 
 import Lib_py.params as params
 from Lib_py.page_info import *
@@ -134,15 +135,24 @@ class CleatureManager:
     class CleatureUpdateThread(threading.Thread):
         def __init__(self):
             threading.Thread.__init__(self)
+            try:
+                with open("Res/cleatures.pickle", mode='rb') as f:
+                    CleatureManager.co_l = pickle.load(f)
+            except:
+                pass
             self.lock = threading.Lock()
         def run(self):
+            counter = 0
             while True:
                 temp_co_l = copy.deepcopy(CleatureManager.co_l)
                 for copy_c in temp_co_l:
                     copy_c.prompt_growth()
                 with self.lock:
                     CleatureManager.co_l = [co for co in temp_co_l if co.is_alive()]
-                wait_time = (params.loop_time() / 2) + random.randrange(params.loop_time())
+                if counter % 5 == 0:
+                    with open("Res/cleatures.pickle", mode='wb') as f:
+                        pickle.dump(CleatureManager.co_l, f)
+                wait_time = (params.loop_time() / 2) + random.randrange(params.loop_time())                
                 time.sleep(wait_time)
 
     
