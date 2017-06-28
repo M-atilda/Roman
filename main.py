@@ -113,7 +113,7 @@ class MyRequestHandler(SimpleHTTPRequestHandler):
 
         
 if __name__ == '__main__':
-    host = 'localhost'
+    host = '192.168.1.188'
     port = 19767
     Handler = MyRequestHandler
     server = HTTPServer((host, port), MyRequestHandler)

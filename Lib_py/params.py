@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 def life():
-    return 30
+    return 40
 
 def cache_amount():
     return 10
@@ -26,4 +26,4 @@ def doms():
     return ["h1", "h2", "h3", "p"]
 
 def encoding_error_candidates():
-    return ['ã', '©', '¼', 'è', 'ª', '®', 'ç', '¹', 'å', '¾´']
+    return ['ã', '©', '¼', 'è', 'ª', '®', 'ç', '¹', 'å', '¾´', 'æ']

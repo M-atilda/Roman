@@ -182,4 +182,4 @@ class CleatureManager:
         if index == -1:
             CleatureManager.co_l.append(cleature_factory(new_str))
         else:
-            CleatureManager[index].add_search_target(new_str)
+            CleatureManager.co_l[index].add_search_target(new_str)
